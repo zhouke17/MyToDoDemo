@@ -1,0 +1,8 @@
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\Views\IndexView.g.cs
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\Views\MainView.g.cs
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\Views\MemoView.g.cs
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\Views\SettingView.g.cs
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\Views\ToDoView.g.cs
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\App.g.cs
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\MyToDoDemo_MarkupCompile.cache
+D:\Codes\PracticeCodes\MyToDoDemo\obj\Debug\net5.0-windows\MyToDoDemo_MarkupCompile.lref

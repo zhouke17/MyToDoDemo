@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MyToDoDemo.Common\**" />
+    <Compile Remove="MyToToDemo.Api\**" />
+    <EmbeddedResource Remove="MyToDoDemo.Common\**" />
+    <EmbeddedResource Remove="MyToToDemo.Api\**" />
+    <None Remove="MyToDoDemo.Common\**" />
+    <None Remove="MyToToDemo.Api\**" />
+    <Page Remove="MyToDoDemo.Common\**" />
+    <Page Remove="MyToToDemo.Api\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Sources\Images\头像.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Sources\Images\头像.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="MyToDoDemo.Common\MyToDoDemo.Common.csproj" />
+    <ProjectReference Include="MyToToDemo.Api\MyToToDemo.Api.csproj" />
+  </ItemGroup>
+
+</Project>
