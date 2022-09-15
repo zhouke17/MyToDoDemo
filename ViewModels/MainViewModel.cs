@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace MyToDoDemo.ViewModels
 {
@@ -37,6 +38,7 @@ namespace MyToDoDemo.ViewModels
 
             this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate(obj.MenuPage, (Journal) =>
             {
+                MessageBox.Show(Journal.Error.Message);
                 this.navigationJournal = Journal.Context.NavigationService.Journal;
             });
         }

@@ -1,4 +1,6 @@
-﻿using MyToDoDemo.Common.Models;
+﻿using MyToDoDemo.Common.Dtos;
+using MyToDoDemo.Common.Parameters;
+using MyToDoDemo.Service;
 using Prism.Mvvm;
 using System;
 using System.Collections.ObjectModel;
@@ -8,6 +10,7 @@ namespace MyToDoDemo.ViewModels
     public class ToDoViewModel:BindableBase
     {
         private ObservableCollection<ToDoDto> toDoDtos;
+        private readonly ITodoService todoService;
 
         public ObservableCollection<ToDoDto> ToDoDtos
         {
@@ -15,21 +18,26 @@ namespace MyToDoDemo.ViewModels
             set { toDoDtos = value; RaisePropertyChanged(); }
         }
 
-        public ToDoViewModel()
+        public ToDoViewModel(ITodoService todoService)
         {
             toDoDtos = new ObservableCollection<ToDoDto>();
+            this.todoService = todoService;
             Init();
         }
 
-        private void Init()
+        private async void Init()
         {
-            for (int i = 0; i < 20; i++)
+            var res = await todoService.GetAllFilterAsync(new ToDoParameter
             {
-                toDoDtos.Add(new ToDoDto()
-                { 
-                    Title = "标题" + i,
-                    Content = "测试数据..."
-                });
+                PageIndex = 0,
+                PageSize = 100
+            });
+            if (res.Status)
+            {
+                foreach (var item in res.Data.Items)
+                {
+                    toDoDtos.Add(item);
+                }
             }
         }
     }

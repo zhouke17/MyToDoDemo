@@ -67,7 +67,11 @@ namespace MyToToDemo.Api.Services
             }
             
         }
-
+        /// <summary>
+        /// 适配todo参数的查询接口
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public async Task<ApiResponse> GetAllAsync(ToDoParameter query)
         {
             try
@@ -87,7 +91,6 @@ namespace MyToToDemo.Api.Services
             }
            
         }
-
         public async Task<ApiResponse> GetAllAsync(QueryParameter query)
         {
             try

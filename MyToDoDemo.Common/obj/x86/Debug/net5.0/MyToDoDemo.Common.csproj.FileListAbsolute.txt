@@ -22,3 +22,15 @@ D:\资料\资源代码\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoD
 D:\资料\资源代码\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\refint\MyToDoDemo.Common.dll
 D:\资料\资源代码\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.pdb
 D:\资料\资源代码\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\ref\MyToDoDemo.Common.dll
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\bin\x86\Debug\net5.0\MyToDoDemo.Common.deps.json
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\bin\x86\Debug\net5.0\MyToDoDemo.Common.dll
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\bin\x86\Debug\net5.0\MyToDoDemo.Common.pdb
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.csproj.AssemblyReference.cache
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.AssemblyInfoInputs.cache
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.AssemblyInfo.cs
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.csproj.CoreCompileInputs.cache
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.dll
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\refint\MyToDoDemo.Common.dll
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\MyToDoDemo.Common.pdb
+D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\obj\x86\Debug\net5.0\ref\MyToDoDemo.Common.dll
