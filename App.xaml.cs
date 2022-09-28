@@ -20,8 +20,8 @@ namespace MyToDoDemo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //containerRegistry.GetContainer().Register<HttpClient>(made: Parameters.Of.Type<string>(serviceKey: "Url"));
-            //containerRegistry.GetContainer().RegisterInstance(@"http://localhost:5000/", serviceKey: "Url");
+            containerRegistry.GetContainer().Register<HttpClient>(made: Parameters.Of.Type<string>(serviceKey: "Url"));
+            containerRegistry.GetContainer().RegisterInstance(@"http://localhost:5000/", serviceKey: "Url");
 
             containerRegistry.Register<ITodoService, TodoService>();
             containerRegistry.Register<IMemoService, MemoService>();

@@ -36,13 +36,13 @@ namespace MyToDoDemo.Views
             {
                 this.Close();
             };
-            this.RibbonBar.MouseMove += (s, e) =>
-            {
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    this.DragMove();
-                }
-            };
+            //this.RibbonBar.MouseMove += (s, e) =>
+            //{
+            //    if (e.LeftButton == MouseButtonState.Pressed)
+            //    {
+            //        this.DragMove();
+            //    }
+            //};
             this.RibbonBar.MouseDoubleClick += (s, e) =>
             {
                 if (this.WindowState == WindowState.Maximized)

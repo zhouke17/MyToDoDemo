@@ -38,7 +38,7 @@ namespace MyToDoDemo.ViewModels
 
             this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate(obj.MenuPage, (Journal) =>
             {
-                MessageBox.Show(Journal.Error.Message);
+                //MessageBox.Show(Journal.Error.Message);
                 this.navigationJournal = Journal.Context.NavigationService.Journal;
             });
         }

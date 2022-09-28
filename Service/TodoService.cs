@@ -9,7 +9,7 @@ namespace MyToDoDemo.Service
     {
         private readonly HttpClient httpClient;
 
-        public TodoService(HttpClient httpClient, string contorlName) : base(httpClient, "Todo")
+        public TodoService(HttpClient httpClient) : base(httpClient, "Todo")
         {
             this.httpClient = httpClient;
         }
@@ -17,11 +17,12 @@ namespace MyToDoDemo.Service
         public async Task<Response<PagedList<ToDoDto>>> GetAllFilterAsync(ToDoParameter parameter)
         {
             RequestParams request = new RequestParams();
-            request.Method = RestSharp.Method.POST;
+            request.Method = RestSharp.Method.GET;
             request.Param = parameter;
             request.Route = $"api/Todo/GetAll?pageIndex={parameter.PageIndex}" +
                 $"&pageSize={parameter.PageSize}" +
-                $"&search={parameter.Search}";
+                $"&search={parameter.Search}" + 
+                $"&status={parameter.Status}";
             return await httpClient.ExectAsync<PagedList<ToDoDto>>(request);
         }
     }

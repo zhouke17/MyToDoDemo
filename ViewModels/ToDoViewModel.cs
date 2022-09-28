@@ -30,7 +30,9 @@ namespace MyToDoDemo.ViewModels
             var res = await todoService.GetAllFilterAsync(new ToDoParameter
             {
                 PageIndex = 0,
-                PageSize = 100
+                PageSize = 100,
+                Search = "",
+                Status = null
             });
             if (res.Status)
             {
