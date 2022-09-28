@@ -1,16 +1,19 @@
 ﻿using MyToDoDemo.Common.Dtos;
 using MyToDoDemo.Common.Parameters;
 using MyToDoDemo.Service;
+using Prism.Ioc;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.ObjectModel;
 
 namespace MyToDoDemo.ViewModels
 {
-    public class ToDoViewModel:BindableBase
+    public class ToDoViewModel : NavigationViewModel
     {
         private ObservableCollection<ToDoDto> toDoDtos;
         private readonly ITodoService todoService;
+        private readonly IContainerProvider containerProvider;
 
         public ObservableCollection<ToDoDto> ToDoDtos
         {
@@ -18,15 +21,16 @@ namespace MyToDoDemo.ViewModels
             set { toDoDtos = value; RaisePropertyChanged(); }
         }
 
-        public ToDoViewModel(ITodoService todoService)
+        public ToDoViewModel(ITodoService todoService, IContainerProvider containerProvider) : base(containerProvider)
         {
             toDoDtos = new ObservableCollection<ToDoDto>();
             this.todoService = todoService;
-            Init();
+            this.containerProvider = containerProvider;
         }
 
-        private async void Init()
+        private async void GetAllAsync()
         {
+            ShowLoading(true);
             var res = await todoService.GetAllFilterAsync(new ToDoParameter
             {
                 PageIndex = 0,
@@ -41,6 +45,12 @@ namespace MyToDoDemo.ViewModels
                     toDoDtos.Add(item);
                 }
             }
+            ShowLoading(false);
+        }
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            base.OnNavigatedTo(navigationContext);
+            GetAllAsync();
         }
     }
 }

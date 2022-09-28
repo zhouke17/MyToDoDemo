@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyToDoDemo.Extension;
+using Prism.Events;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -10,9 +12,20 @@ namespace MyToDoDemo.Views
     public partial class MainView : Window
     {
 
-        public MainView()
+        public MainView(IEventAggregator eventAggregator)
         {
             InitializeComponent();
+
+            //注册加载中事件消息窗口
+            eventAggregator.Subscribe((flag) => 
+            {
+                this.dialogHost.IsOpen = flag.IsOpen;
+                if (flag.IsOpen)
+                {
+                    dialogHost.DialogContent = new LoadingView();
+                }
+            });
+
             this.menuList.SelectionChanged += (s, e) =>
             {
                 this.leftDrawer.IsLeftDrawerOpen = false;

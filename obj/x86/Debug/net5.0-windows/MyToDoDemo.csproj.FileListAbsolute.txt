@@ -119,3 +119,5 @@ D:\Codes\SourceCodes\Github\MyToDoDemo\obj\x86\Debug\net5.0-windows\refint\MyToD
 D:\Codes\SourceCodes\Github\MyToDoDemo\obj\x86\Debug\net5.0-windows\MyToDoDemo.pdb
 D:\Codes\SourceCodes\Github\MyToDoDemo\obj\x86\Debug\net5.0-windows\MyToDoDemo.genruntimeconfig.cache
 D:\Codes\SourceCodes\Github\MyToDoDemo\obj\x86\Debug\net5.0-windows\ref\MyToDoDemo.dll
+D:\Codes\SourceCodes\Github\MyToDoDemo\obj\x86\Debug\net5.0-windows\Views\LoadingView.g.cs
+D:\Codes\SourceCodes\Github\MyToDoDemo\obj\x86\Debug\net5.0-windows\Views\LoadingView.baml

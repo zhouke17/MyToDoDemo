@@ -10,7 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     Title="MainView"
-   d:DesignHeight="768"
+    d:DesignHeight="768"
     d:DesignWidth="1388"
     prism:ViewModelLocator.AutoWireViewModel="True"
     AllowsTransparency="True"
@@ -25,6 +25,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <materialDesign:DialogHost
+        x:Name="dialogHost"
         DialogTheme="Inherit"
         Identifier="RootDialog"
         SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
