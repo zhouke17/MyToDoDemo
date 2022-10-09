@@ -27,7 +27,7 @@ namespace MyToToDemo.Api.Services
                 await unitOfWork.GetRepository<ToDo>().InsertAsync(todo);
                 if (await unitOfWork.SaveChangesAsync() > 0)
                 {
-                    return new ApiResponse(true, model);
+                    return new ApiResponse(true, todo);
                 }
                 else
                 {
@@ -77,7 +77,7 @@ namespace MyToToDemo.Api.Services
             try
             {
                 var repository = unitOfWork.GetRepository<ToDo>();
-                var todos = await repository.GetPagedListAsync(s=> string.IsNullOrWhiteSpace(query.Search) ? true : s.Title.Contains(query.Search) && (query.Status == null ? true : s.Status.Equals(query.Status)),
+                var todos = await repository.GetPagedListAsync(s=> (string.IsNullOrWhiteSpace(query.Search) ? true : s.Title.Contains(query.Search)) && (query.Status == null ? true : s.Status.Equals(query.Status)),
                     pageIndex:query.PageIndex,
                     pageSize:query.PageSize,
                     orderBy:param => param.OrderByDescending(t=>t.CreateTime));
@@ -138,7 +138,7 @@ namespace MyToToDemo.Api.Services
 
                 if (todo == null) return new ApiResponse(false, "更新的数据不存在！");
 
-                repository.Update(todo);
+                repository.Update(dto);
 
                 if (await unitOfWork.SaveChangesAsync() > 0)
                 {

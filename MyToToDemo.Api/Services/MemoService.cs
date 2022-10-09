@@ -27,7 +27,7 @@ namespace MyToToDemo.Api.Services
                 await unitOfWork.GetRepository<Memo>().InsertAsync(memo);
                 if (await unitOfWork.SaveChangesAsync() > 0)
                 {
-                    return new ApiResponse(true, model);
+                    return new ApiResponse(true, memo);
                 }
                 else
                 {

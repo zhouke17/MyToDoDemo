@@ -29,7 +29,7 @@ namespace MyToDoDemo.Service
             restRequest.AddHeader("Content-Type",parammater.ContentType);
             if (parammater.Param != null)
             {
-                restRequest.AddParameter("param", JsonConvert.SerializeObject(parammater), ParameterType.RequestBody);
+                restRequest.AddParameter("param", JsonConvert.SerializeObject(parammater.Param), ParameterType.RequestBody);
             }
             var response = await restClient.ExecuteAsync(restRequest);
             if (response.IsSuccessful)
@@ -50,7 +50,7 @@ namespace MyToDoDemo.Service
             restRequest.AddHeader("Content-Type", parammater.ContentType);
             if (parammater.Param != null)
             {
-                restRequest.AddParameter("param", JsonConvert.SerializeObject(parammater), ParameterType.RequestBody);
+                restRequest.AddParameter("param", JsonConvert.SerializeObject(parammater.Param), ParameterType.RequestBody);
             }
             var response = await restClient.ExecuteAsync(restRequest);
             if (response.IsSuccessful)

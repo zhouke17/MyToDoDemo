@@ -22,16 +22,16 @@ namespace MyToToDemo.Api.Controllers
         public async Task<ApiResponse> Get(int id) => await todoService.GetSingleAsync(id);
 
         [HttpGet]
-        public async Task<ApiResponse> GetAll([FromQuery]ToDoParameter queryParameter) => await todoService.GetAllAsync(queryParameter);
+        public async Task<ApiResponse> GetAll([FromQuery] ToDoParameter queryParameter) => await todoService.GetAllAsync(queryParameter);
 
         [HttpPost]
-        public async Task<ApiResponse> Add(ToDoDto toDo) => await todoService.AddAsync(toDo);
+        public async Task<ApiResponse> Add([FromBody] ToDoDto toDo) => await todoService.AddAsync(toDo);
 
         [HttpDelete]
         public async Task<ApiResponse> Delete(int id) => await todoService.DeleteAsync(id);
 
         [HttpPost]
-        public async Task<ApiResponse> Update(ToDoDto toDo) => await todoService.UpdateAsync(toDo);
+        public async Task<ApiResponse> Update([FromBody] ToDoDto toDo) => await todoService.UpdateAsync(toDo);
 
     }
 
