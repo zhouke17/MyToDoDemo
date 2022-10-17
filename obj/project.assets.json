@@ -2319,11 +2319,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\资料\\资源代码\\MyToDoDemo\\MyToDoDemo.csproj",
+      "projectUniqueName": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
       "projectName": "MyToDoDemo",
-      "projectPath": "D:\\资料\\资源代码\\MyToDoDemo\\MyToDoDemo.csproj",
+      "projectPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
       "packagesPath": "C:\\Users\\kezhou3\\.nuget\\packages\\",
-      "outputPath": "D:\\资料\\资源代码\\MyToDoDemo\\obj\\",
+      "outputPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kezhou3\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2333,18 +2333,18 @@
         "net5.0-windows7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\资料\\资源代码\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj": {
-              "projectPath": "D:\\资料\\资源代码\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj"
+            "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj": {
+              "projectPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj"
             },
-            "D:\\资料\\资源代码\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj": {
-              "projectPath": "D:\\资料\\资源代码\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj"
+            "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj": {
+              "projectPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj"
             }
           }
         }

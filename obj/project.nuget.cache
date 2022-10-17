@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5TuGPt4TGSrlQePGUcXebtgsIS7Pu+ZhQEHvmhytieUTH4q3JYeLFf9JRNlbACyGjZ7A2Dn1LTpNTK++st+Yxw==",
+  "dgSpecHash": "uA2cQ0GsPZ4Bm3TC5d86izr6I8fJq8Cwl8609UXbI8E//7uBrPtOdlx6VhMF9+nHVzXx1DC8d9465GTmyrea3Q==",
   "success": true,
-  "projectFilePath": "D:\\资料\\资源代码\\MyToDoDemo\\MyToDoDemo.csproj",
+  "projectFilePath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kezhou3\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\kezhou3\\.nuget\\packages\\dryioc.dll\\4.7.7\\dryioc.dll.4.7.7.nupkg.sha512",

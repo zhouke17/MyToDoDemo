@@ -1,4 +1,5 @@
 ﻿using DryIoc;
+using MyToDoDemo.Common;
 using MyToDoDemo.Service;
 using MyToDoDemo.ViewModels;
 using MyToDoDemo.Views;
@@ -18,6 +19,13 @@ namespace MyToDoDemo
             return Container.Resolve<MainView>();
         }
 
+        protected override void OnInitialized()
+        {
+            var mainView = App.Current.MainWindow.DataContext as IConfigureService;
+            if (mainView != null)
+                mainView.Configure();
+            base.OnInitialized();
+        }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.GetContainer().Register<HttpClient>(made: Parameters.Of.Type<string>(serviceKey: "Url"));

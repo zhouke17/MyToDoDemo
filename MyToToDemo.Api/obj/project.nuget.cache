@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JDJZlK49KFAmW7grW0tzU2rJrucmswjxNb9zrlU1ck1qxZo7kTpZ3mOeSrujFwipzfRhbouFCrkv+0BmSykw5A==",
+  "dgSpecHash": "/bx+18E9HaZSub7AmoLAyf9D9fWaP0K/TftF+9ZPEBzGeDtY4VC0eOZxdA6+jKDuAZLz9O2iaiK+2em+scM7BQ==",
   "success": true,
-  "projectFilePath": "D:\\资料\\资源代码\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj",
+  "projectFilePath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kezhou3\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\kezhou3\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
