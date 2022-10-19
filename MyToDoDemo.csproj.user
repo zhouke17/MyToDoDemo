@@ -13,12 +13,18 @@
     <Compile Update="Views\Dialogs\AddTodoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\LoadingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Dialogs\AddMemoView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Dialogs\AddTodoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LoadingView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainView.xaml">

@@ -7,4 +7,8 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyToDoDemo.Common
+<<<<<<< HEAD
 build_property.ProjectDir = D:\资料\资源代码\Github\MyToDoDemo\MyToDoDemo.Common\
+=======
+build_property.ProjectDir = D:\Codes\SourceCodes\Github\MyToDoDemo\MyToDoDemo.Common\
+>>>>>>> 5ba60bc2524de30af092de80c16e7c6bf68a0e0a

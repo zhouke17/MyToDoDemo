@@ -35,8 +35,9 @@ namespace MyToDoDemo.ViewModels
             if (obj == null || string.IsNullOrEmpty(obj.MenuPage))
                 return;
 
-            this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate(obj.MenuPage, (Journal) =>
+            this.regionManager.Regions[Extensions.RegionManager.MainViewRegionName].RequestNavigate(obj.MenuPage, (Journal) =>
             {
+                //MessageBox.Show(Journal.Error.Message);
                 this.navigationJournal = Journal.Context.NavigationService.Journal;
             });
         }
@@ -72,7 +73,7 @@ namespace MyToDoDemo.ViewModels
         public void Configure()
         {
             Init();
-            this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate("IndexView");
+            this.regionManager.Regions[Extensions.RegionManager.MainViewRegionName].RequestNavigate("IndexView");
         }
     }
 }

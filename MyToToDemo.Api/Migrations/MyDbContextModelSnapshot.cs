@@ -16,7 +16,7 @@ namespace MyToToDemo.Api.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.17");
 
-            modelBuilder.Entity("MyToToDemo.Api.Context.Memo", b =>
+            modelBuilder.Entity("MyToToDemo.Api.Entities.Memo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +39,7 @@ namespace MyToToDemo.Api.Migrations
                     b.ToTable("Memos");
                 });
 
-            modelBuilder.Entity("MyToToDemo.Api.Context.ToDo", b =>
+            modelBuilder.Entity("MyToToDemo.Api.Entities.ToDo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,8 +51,8 @@ namespace MyToToDemo.Api.Migrations
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Status")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Status")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
@@ -65,7 +65,7 @@ namespace MyToToDemo.Api.Migrations
                     b.ToTable("ToDos");
                 });
 
-            modelBuilder.Entity("MyToToDemo.Api.Context.User", b =>
+            modelBuilder.Entity("MyToToDemo.Api.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
