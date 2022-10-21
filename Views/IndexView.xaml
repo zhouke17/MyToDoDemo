@@ -100,6 +100,8 @@
                     LastChildFill="False">
                     <TextBlock FontSize="24" Text="待办事项" />
                     <Button
+                        Command="{Binding ExecuteCommand}"
+                        CommandParameter="新增待办"
                         x:Name="add"
                         Width="40"
                         Height="40"
@@ -146,6 +148,8 @@
                     LastChildFill="False">
                     <TextBlock FontSize="24" Text="备忘录" />
                     <Button
+                                  Command="{Binding ExecuteCommand}"
+                        CommandParameter="新增备忘录"
                         x:Name="addTodoItem"
                         Width="40"
                         Height="40"

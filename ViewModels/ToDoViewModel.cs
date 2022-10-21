@@ -3,7 +3,6 @@ using MyToDoDemo.Common.Parameters;
 using MyToDoDemo.Service;
 using Prism.Commands;
 using Prism.Ioc;
-using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Collections.ObjectModel;
@@ -16,7 +15,7 @@ namespace MyToDoDemo.ViewModels
         #region 字段属性  
         private ObservableCollection<ToDoDto> toDoDtos;
         private readonly ITodoService todoService;
-        private readonly IContainerProvider containerProvider;    
+        private readonly IContainerProvider containerProvider;
         public DelegateCommand<ToDoDto> SelectedCommand { get; set; }
         public DelegateCommand<string> ExecuteCommand { get; set; }
         public DelegateCommand<ToDoDto> DeleteCommand { get; set; }
@@ -26,12 +25,12 @@ namespace MyToDoDemo.ViewModels
         /// </summary>
         public int Status
         {
-            get 
-            { 
+            get
+            {
                 return status;
             }
-            set 
-            { 
+            set
+            {
                 status = value;
                 GetAllAsync();
                 RaisePropertyChanged();
@@ -44,7 +43,7 @@ namespace MyToDoDemo.ViewModels
         /// </summary>
         public string SearchText
         {
-            get{ return searchText; }
+            get { return searchText; }
             set { searchText = value; GetAllAsync(); RaisePropertyChanged(); }
         }
         private bool isRightDrawerOpen;
@@ -91,7 +90,7 @@ namespace MyToDoDemo.ViewModels
             var deleteRes = await todoService.DeleteAsyc(obj.Id);
             if (deleteRes.Status)
             {
-                var delTodo = ToDoDtos.FirstOrDefault(s=>s.Id == obj.Id);
+                var delTodo = ToDoDtos.FirstOrDefault(s => s.Id == obj.Id);
                 if (delTodo != null)
                 {
                     ToDoDtos.Remove(delTodo);
@@ -136,7 +135,7 @@ namespace MyToDoDemo.ViewModels
                     var updateRes = await todoService.UpdateAsync(CurrentDto);
                     if (updateRes.Status)
                     {
-                        var toDoDto = ToDoDtos.FirstOrDefault(S=>S.Id.Equals(CurrentDto.Id));
+                        var toDoDto = ToDoDtos.FirstOrDefault(S => S.Id.Equals(CurrentDto.Id));
                         toDoDto.Title = CurrentDto.Title; //将当前保存的数据赋与历史数据，以实现即时更新
                         toDoDto.Content = CurrentDto.Content;
                         toDoDto.Status = CurrentDto.Status;

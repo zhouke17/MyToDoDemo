@@ -56,10 +56,17 @@
                         x:Name="menuList"
                         ItemContainerStyle="{StaticResource MyListBoxItemStyle}"
                         ItemsSource="{Binding MenuBars}">
-                        <!--  选中事件触发器，触发导航事件  -->
-                        <i:Interaction.Triggers>
+                        <!--  ListBox采用ElementName的方式绑定触发导航事件  -->
+                        <!--<i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding NavigateCommand}" CommandParameter="{Binding ElementName=menuList, Path=SelectedItem}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                        <!--  ListBox采用FindAncestor的方式绑定触发导航事件  -->
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding NavigateCommand}" 
+                                                       CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox}}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <ListBox.ItemTemplate>
@@ -70,6 +77,12 @@
                                     Orientation="Horizontal">
                                     <materialDesign:PackIcon Margin="10,0" Kind="{Binding Icon}" />
                                     <TextBlock Margin="10,0" Text="{Binding Title}" />
+                                    <!--ListBox的DataTemplate中采用查找FindAncestor的方式绑定触发导航事件--><!--
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <i:InvokeCommandAction Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}}" CommandParameter="{Binding}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>-->
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

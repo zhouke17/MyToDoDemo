@@ -1,13 +1,13 @@
-﻿using MyToDoDemo.Common.Models;
+﻿using MyToDoDemo.Common;
+using MyToDoDemo.Common.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace MyToDoDemo.ViewModels
 {
-    public class MainViewModel : BindableBase
+    public class MainViewModel : BindableBase, IConfigService
     {
         private ObservableCollection<MenuBar> menuBars;
         private readonly IRegionManager regionManager;
@@ -28,7 +28,6 @@ namespace MyToDoDemo.ViewModels
             this.navigationJournal = navigationJournal;
             menuBars = new ObservableCollection<MenuBar>();
             NavigateCommand = new DelegateCommand<MenuBar>(Navigate);
-            Init();
         }
 
         private void Navigate(MenuBar obj)
@@ -69,6 +68,12 @@ namespace MyToDoDemo.ViewModels
                 Title = "设置",
                 MenuPage = "SettingView"
             });
+        }
+
+        public void Config()
+        {
+            Init();
+            this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate("InderView");
         }
     }
 }

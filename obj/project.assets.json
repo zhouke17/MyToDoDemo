@@ -2604,36 +2604,37 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\kezhou3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
+      "projectUniqueName": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
       "projectName": "MyToDoDemo",
-      "projectPath": "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\obj\\",
+      "projectPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.csproj",
+      "packagesPath": "C:\\Users\\kezhou3\\.nuget\\packages\\",
+      "outputPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kezhou3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj": {
-              "projectPath": "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj"
+            "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj": {
+              "projectPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToDoDemo.Common\\MyToDoDemo.Common.csproj"
             },
-            "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj": {
-              "projectPath": "D:\\Codes\\SourceCodes\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj"
+            "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj": {
+              "projectPath": "D:\\资料\\资源代码\\Github\\MyToDoDemo\\MyToToDemo.Api\\MyToToDemo.Api.csproj"
             }
           }
         }
@@ -2670,7 +2671,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2682,7 +2684,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

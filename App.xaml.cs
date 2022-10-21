@@ -1,7 +1,10 @@
 ﻿using DryIoc;
+using MyToDoDemo.Common;
 using MyToDoDemo.Service;
 using MyToDoDemo.ViewModels;
+using MyToDoDemo.ViewModels.Dialogs;
 using MyToDoDemo.Views;
+using MyToDoDemo.Views.Dialogs;
 using Prism.DryIoc;
 using Prism.Ioc;
 using System.Windows;
@@ -18,6 +21,15 @@ namespace MyToDoDemo
             return Container.Resolve<MainView>();
         }
 
+        protected override void OnInitialized()
+        {
+            var mainWindow = App.Current.MainWindow.DataContext as IConfigService;
+            if (mainWindow != null)
+            {
+                mainWindow.Config();
+            }
+            base.OnInitialized();
+        }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.GetContainer().Register<HttpClient>(made: Parameters.Of.Type<string>(serviceKey: "Url"));
@@ -26,6 +38,9 @@ namespace MyToDoDemo
             containerRegistry.Register<ITodoService, TodoService>();
             containerRegistry.Register<IMemoService, MemoService>();
             containerRegistry.Register<ILoginService, LoginService>();
+
+            containerRegistry.RegisterDialog<AddTodoView, AddTodoViewModel>();
+            containerRegistry.RegisterDialog<AddMemoView, AddMemoViewModel>();
 
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             containerRegistry.RegisterForNavigation<ToDoView, ToDoViewModel>();

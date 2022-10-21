@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Codes\SourceCodes\Github\MyToDoDemo\obj\Debug\net5.0-windows\
+D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\
 MyToDoDemo
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-D:\Codes\SourceCodes\Github\MyToDoDemo\App.xaml
-6165360140
+D:\资料\资源代码\Github\MyToDoDemo\App.xaml
+8-1996924644
 
-33-1328685712
-345878011266
-Views\IndexView.xaml;Views\LoadingView.xaml;Views\MainView.xaml;Views\MemoView.xaml;Views\SettingView.xaml;Views\ToDoView.xaml;
+38-1216053793
+345-2127920234
+Views\Dialogs\AddMemoView.xaml;Views\Dialogs\AddTodoView.xaml;Views\IndexView.xaml;Views\LoadingView.xaml;Views\MainView.xaml;Views\MemoView.xaml;Views\SettingView.xaml;Views\ToDoView.xaml;
 
 False
 
