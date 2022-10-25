@@ -1,9 +1,11 @@
-﻿using MyToDoDemo.Common.Dtos;
+﻿using MyToDoDemo.Common;
+using MyToDoDemo.Common.Dtos;
 using MyToDoDemo.Common.Parameters;
 using MyToDoDemo.Service;
 using Prism.Commands;
 using Prism.Ioc;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace MyToDoDemo.ViewModels
         private ObservableCollection<ToDoDto> toDoDtos;
         private readonly ITodoService todoService;
         private readonly IContainerProvider containerProvider;
+        private readonly IDialogHostService dialog;
+
         public DelegateCommand<ToDoDto> SelectedCommand { get; set; }
         public DelegateCommand<string> ExecuteCommand { get; set; }
         public DelegateCommand<ToDoDto> DeleteCommand { get; set; }
@@ -75,11 +79,12 @@ namespace MyToDoDemo.ViewModels
         }
         #endregion
 
-        public ToDoViewModel(ITodoService todoService, IContainerProvider containerProvider) : base(containerProvider)
+        public ToDoViewModel(ITodoService todoService, IContainerProvider containerProvider, IDialogHostService dialog) : base(containerProvider)
         {
             toDoDtos = new ObservableCollection<ToDoDto>();
             this.todoService = todoService;
             this.containerProvider = containerProvider;
+            this.dialog = dialog;
             SelectedCommand = new DelegateCommand<ToDoDto>(Selected);
             ExecuteCommand = new DelegateCommand<string>(Execute);
             DeleteCommand = new DelegateCommand<ToDoDto>(Delete);
@@ -87,6 +92,13 @@ namespace MyToDoDemo.ViewModels
 
         private async void Delete(ToDoDto obj)
         {
+            DialogParameters pairs = new DialogParameters();
+            pairs.Add("Title", "温馨提示");
+            pairs.Add("Content", $"是否删除{obj.Title}？");
+
+            var diaResult = await dialog.ShowDialog("ToolTipView", pairs);
+            if (diaResult.Result != ButtonResult.OK) return;
+
             var deleteRes = await todoService.DeleteAsyc(obj.Id);
             if (deleteRes.Status)
             {
@@ -135,8 +147,8 @@ namespace MyToDoDemo.ViewModels
                     var updateRes = await todoService.UpdateAsync(CurrentDto);
                     if (updateRes.Status)
                     {
-                        var toDoDto = ToDoDtos.FirstOrDefault(S => S.Id.Equals(CurrentDto.Id));
-                        toDoDto.Title = CurrentDto.Title; //将当前保存的数据赋与历史数据，以实现即时更新
+                        var toDoDto = ToDoDtos.FirstOrDefault(S => S.Id.Equals(CurrentDto.Id));//将原始对象查找出来
+                        toDoDto.Title = CurrentDto.Title; //将当前保存的数据赋与原始对象，以实现即时更新
                         toDoDto.Content = CurrentDto.Content;
                         toDoDto.Status = CurrentDto.Status;
                         IsRightDrawerOpen = false;

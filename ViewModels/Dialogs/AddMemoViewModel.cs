@@ -1,12 +1,13 @@
-﻿using MyToDoDemo.Common.Dtos;
+﻿using MaterialDesignThemes.Wpf;
+using MyToDoDemo.Common;
+using MyToDoDemo.Common.Dtos;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
-using System;
 
 namespace MyToDoDemo.ViewModels.Dialogs
 {
-    public class AddMemoViewModel : BindableBase, IDialogAware
+    public class AddMemoViewModel : BindableBase, IDialogHostAware
     {
         private MemoDto model;
 
@@ -19,30 +20,10 @@ namespace MyToDoDemo.ViewModels.Dialogs
             set { model = value; RaisePropertyChanged(); }
         }
 
-        #region IDialogAware
-        private string _title;
-
-        public string Title
-        {
-            get { return _title; }
-            set { _title = value; RaisePropertyChanged(); }
-        }
-
-        public event Action<IDialogResult> RequestClose;
-
-        public bool CanCloseDialog()
-        {
-            return true;
-        }
-
-        public void OnDialogClosed()
-        {
-
-        }
-        #endregion
-
         public DelegateCommand CancelCommand { get; set; }
         public DelegateCommand ConfirmCommand { get; set; }
+        public string DialogHostName { get; set; }
+
         public AddMemoViewModel()
         {
             CancelCommand = new DelegateCommand(Cancel);
@@ -52,14 +33,16 @@ namespace MyToDoDemo.ViewModels.Dialogs
         private void Confirm()
         {
             DialogParameters pairs = new DialogParameters();
-            pairs.Add("Memo", Model);
+            pairs.Add("Todo", Model);
 
-            RequestClose?.Invoke(new DialogResult(ButtonResult.OK, pairs));
+            if (DialogHost.IsDialogOpen(DialogHostName))
+                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.OK, pairs));
         }
 
         private void Cancel()
         {
-            RequestClose?.Invoke(new DialogResult(ButtonResult.Cancel));
+            if (DialogHost.IsDialogOpen(DialogHostName))
+                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.Cancel));
         }
 
         public void OnDialogOpened(IDialogParameters parameters)

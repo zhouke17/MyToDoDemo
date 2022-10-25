@@ -1,13 +1,23 @@
-﻿using MyToDoDemo.Common.Models;
+﻿using MyToDoDemo.Common;
+using MyToDoDemo.Common.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
+using System;
 using System.Collections.ObjectModel;
+using System.Windows.Threading;
 
 namespace MyToDoDemo.ViewModels
 {
     public class IndexViewModel : BindableBase
     {
+        private DateTime dateTime;
+
+        public DateTime DateTime
+        {
+            get { return dateTime; }
+            set { dateTime = value; RaisePropertyChanged(); }
+        }
 
         private ObservableCollection<TaskBar> taskBars;
         public ObservableCollection<TaskBar> TaskBars
@@ -30,7 +40,7 @@ namespace MyToDoDemo.ViewModels
             set { doDtos = value; RaisePropertyChanged(); }
         }
         private ObservableCollection<MemoDto> memoDtos;
-        private readonly IDialogService dialogService;
+        private readonly IDialogHostService dialogService;
 
         public ObservableCollection<MemoDto> MemoDtos
         {
@@ -41,13 +51,14 @@ namespace MyToDoDemo.ViewModels
 
         public DelegateCommand<string> ExecuteCommand { get; set; }
 
-        public IndexViewModel(IDialogService dialogService)
+        public IndexViewModel(IDialogHostService dialogService)
         {
             ExecuteCommand = new DelegateCommand<string>(Execute);
             taskBars = new ObservableCollection<TaskBar>();
             InitTaskBars();
             CreateTestData();
             this.dialogService = dialogService;
+            InitTimer();
         }
 
         private void Execute(string commandName)
@@ -63,40 +74,36 @@ namespace MyToDoDemo.ViewModels
             }
         }
 
-        private void AddMemo()
+        private async void AddMemo()
         {
             ToDoDto toDoDto = new ToDoDto();
             DialogParameters pairs = new DialogParameters();
             pairs.Add("Memo", toDoDto);
-            dialogService.ShowDialog("Memo", pairs, callback =>
+            var diaResult = await dialogService.ShowDialog("AddMemoView", pairs);
+            if (diaResult.Result == ButtonResult.OK)
             {
-                if (callback.Result == ButtonResult.OK)
-                {
 
-                }
-                else
-                {
+            }
+            else
+            {
 
-                }
-            });
+            }
         }
 
-        private void AddTodo()
+        private async void AddTodo()
         {
             ToDoDto toDoDto = new ToDoDto();
             DialogParameters pairs = new DialogParameters();
             pairs.Add("Todo", toDoDto);
-            dialogService.ShowDialog("Todo", pairs, callback =>
+            var diaResult = await dialogService.ShowDialog("AddTodoView", pairs);
+            if (diaResult.Result == ButtonResult.OK)
             {
-                if (callback.Result == ButtonResult.OK)
-                {
 
-                }
-                else
-                {
+            }
+            else
+            {
 
-                }
-            });
+            }
         }
 
         private void InitTaskBars()
@@ -115,6 +122,20 @@ namespace MyToDoDemo.ViewModels
                 doDtos.Add(new ToDoDto() { Title = "提醒" + i, Content = "要做。。。" });
                 memoDtos.Add(new MemoDto() { Title = "备忘" + i, Content = "密码是。。。" });
             }
+        }
+
+        private void InitTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.DateTime = DateTime.Now;
+            //System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(DateTime.Now.DayOfWeek);获取星期
         }
     }
 }

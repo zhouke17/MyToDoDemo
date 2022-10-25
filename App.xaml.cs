@@ -2,9 +2,7 @@
 using MyToDoDemo.Common;
 using MyToDoDemo.Service;
 using MyToDoDemo.ViewModels;
-using MyToDoDemo.ViewModels.Dialogs;
 using MyToDoDemo.Views;
-using MyToDoDemo.Views.Dialogs;
 using Prism.DryIoc;
 using Prism.Ioc;
 using System.Windows;
@@ -39,8 +37,7 @@ namespace MyToDoDemo
             containerRegistry.Register<IMemoService, MemoService>();
             containerRegistry.Register<ILoginService, LoginService>();
 
-            containerRegistry.RegisterDialog<AddTodoView, AddTodoViewModel>();
-            containerRegistry.RegisterDialog<AddMemoView, AddMemoViewModel>();
+            containerRegistry.Register<IDialogHostService>();
 
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             containerRegistry.RegisterForNavigation<ToDoView, ToDoViewModel>();

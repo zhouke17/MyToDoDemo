@@ -105,11 +105,6 @@
                 </StackPanel>
                 <ScrollViewer Grid.Row="1">
                     <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding ToDoDtos}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="">
-                                <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="{Binding ElementName=menuList, Path=SelectedItem}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel />

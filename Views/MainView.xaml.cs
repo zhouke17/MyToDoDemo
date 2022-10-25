@@ -1,8 +1,8 @@
-﻿using MyToDoDemo.Extension;
+﻿using MyToDoDemo.Common;
+using MyToDoDemo.Extension;
 using Prism.Events;
-using System;
+using Prism.Services.Dialogs;
 using System.Windows;
-using System.Windows.Input;
 
 namespace MyToDoDemo.Views
 {
@@ -11,13 +11,14 @@ namespace MyToDoDemo.Views
     /// </summary>
     public partial class MainView : Window
     {
+        private readonly IDialogService dialog;
 
-        public MainView(IEventAggregator eventAggregator)
+        public MainView(IEventAggregator eventAggregator, IDialogHostService dialog)
         {
             InitializeComponent();
 
             //注册加载中事件消息窗口
-            eventAggregator.Subscribe((flag) => 
+            eventAggregator.Subscribe((flag) =>
             {
                 this.dialogHost.IsOpen = flag.IsOpen;
                 if (flag.IsOpen)
@@ -45,8 +46,14 @@ namespace MyToDoDemo.Views
                     this.WindowState = WindowState.Maximized;
                 }
             };
-            this.closeButton.Click += (s, e) =>
+            this.closeButton.Click += async (s, e) =>
             {
+                DialogParameters pairs = new DialogParameters();
+                pairs.Add("Title", "温馨提示");
+                pairs.Add("Content", "是否关闭系统？");
+
+                var diaResult = await dialog.ShowDialog("ToolTipView", pairs);
+                if (diaResult.Result != ButtonResult.OK) return;
                 this.Close();
             };
             //this.RibbonBar.MouseMove += (s, e) =>
@@ -67,7 +74,7 @@ namespace MyToDoDemo.Views
                     this.WindowState = WindowState.Maximized;
                 }
             };
-
+            this.dialog = dialog;
         }
     }
 }

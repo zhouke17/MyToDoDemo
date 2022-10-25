@@ -73,7 +73,7 @@ namespace MyToDoDemo.ViewModels
         public void Config()
         {
             Init();
-            this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate("InderView");
+            this.regionManager.Regions[Extension.RegionManager.MainViewRegionName].RequestNavigate("IndexView");
         }
     }
 }
