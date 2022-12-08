@@ -21,9 +21,17 @@ namespace MyToDoDemo.Service
             request.Param = parameter;
             request.Route = $"api/Todo/GetAll?pageIndex={parameter.PageIndex}" +
                 $"&pageSize={parameter.PageSize}" +
-                $"&search={parameter.Search}" + 
+                $"&search={parameter.Search}" +
                 $"&status={parameter.Status}";
             return await httpClient.ExectAsync<PagedList<ToDoDto>>(request);
+        }
+
+        public async Task<Response<SummaryDto>> GetSummaryAsync()
+        {
+            RequestParams request = new RequestParams();
+            request.Method = RestSharp.Method.GET;
+            request.Route = $"api/Todo/GetSummary";
+            return await httpClient.ExectAsync<SummaryDto>(request);
         }
     }
 }

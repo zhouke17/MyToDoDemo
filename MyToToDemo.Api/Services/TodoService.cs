@@ -4,6 +4,7 @@ using MyToDoDemo.Common.Parameters;
 using MyToToDemo.Api.Context.UnitOfWork;
 using MyToToDemo.Api.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace MyToToDemo.Api.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public TodoService(IUnitOfWork unitOfWork,IMapper mapper)
+        public TodoService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
@@ -36,9 +37,9 @@ namespace MyToToDemo.Api.Services
             }
             catch (Exception ex)
             {
-                return new ApiResponse(false,ex.ToString());
+                return new ApiResponse(false, ex.ToString());
             }
-           
+
         }
 
         public async Task<ApiResponse> DeleteAsync(int id)
@@ -65,7 +66,7 @@ namespace MyToToDemo.Api.Services
             {
                 return new ApiResponse(false, ex.ToString());
             }
-            
+
         }
         /// <summary>
         /// 适配todo参数的查询接口
@@ -77,10 +78,10 @@ namespace MyToToDemo.Api.Services
             try
             {
                 var repository = unitOfWork.GetRepository<ToDo>();
-                var todos = await repository.GetPagedListAsync(s=> (string.IsNullOrWhiteSpace(query.Search) ? true : s.Title.Contains(query.Search)) && (query.Status == null ? true : s.Status.Equals(query.Status)),
-                    pageIndex:query.PageIndex,
-                    pageSize:query.PageSize,
-                    orderBy:param => param.OrderByDescending(t=>t.CreateTime));
+                var todos = await repository.GetPagedListAsync(s => (string.IsNullOrWhiteSpace(query.Search) ? true : s.Title.Contains(query.Search)) && (query.Status == null ? true : s.Status.Equals(query.Status)),
+                    pageIndex: query.PageIndex,
+                    pageSize: query.PageSize,
+                    orderBy: param => param.OrderByDescending(t => t.CreateTime));
 
                 if (todos.Items.Count == 0) return new ApiResponse(false, "未查询到任何数据！");
                 return new ApiResponse(true, todos);
@@ -89,7 +90,7 @@ namespace MyToToDemo.Api.Services
             {
                 return new ApiResponse(false, ex.ToString());
             }
-           
+
         }
         public async Task<ApiResponse> GetAllAsync(QueryParameter query)
         {
@@ -125,7 +126,30 @@ namespace MyToToDemo.Api.Services
             {
                 return new ApiResponse(false, ex.ToString());
             }
-            
+
+        }
+
+        public async Task<ApiResponse> GetSummaryAsync()
+        {
+            try
+            {
+                var todos = await unitOfWork.GetRepository<ToDo>().GetAllAsync(orderBy: s => s.OrderByDescending(t => t.CreateTime));
+
+                var memos = await unitOfWork.GetRepository<Memo>().GetAllAsync(orderBy: s => s.OrderByDescending(t => t.CreateTime));
+
+                SummaryDto summary = new SummaryDto();
+                summary.Sum = todos.Count();
+                summary.CompletedCount = todos.Where(s => s.Status == 0).Count();
+                summary.ToDoList = new System.Collections.ObjectModel.ObservableCollection<ToDoDto>(mapper.Map<List<ToDoDto>>(todos.Where(s => s.Status == 0)));
+                summary.MemoList = new System.Collections.ObjectModel.ObservableCollection<MemoDto>(mapper.Map<List<MemoDto>>(memos));
+                summary.CompletedRatio = (summary.CompletedCount / summary.Sum).ToString("%");
+                summary.MemoeCount = memos.Count();
+                return new ApiResponse(true, summary);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.ToString());
+            }
         }
 
         public async Task<ApiResponse> UpdateAsync(ToDoDto model)
@@ -152,7 +176,7 @@ namespace MyToToDemo.Api.Services
             catch (Exception ex)
             {
                 return new ApiResponse(false, ex.ToString());
-            }            
+            }
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\资料\资源代码\Github\MyToDoDemo\App.xaml
-8-1996924644
+9587272430
 
-38-1216053793
+43-568417022
 345-2127920234
-Views\Dialogs\AddMemoView.xaml;Views\Dialogs\AddTodoView.xaml;Views\IndexView.xaml;Views\LoadingView.xaml;Views\MainView.xaml;Views\MemoView.xaml;Views\SettingView.xaml;Views\ToDoView.xaml;
+Views\Dialogs\AddMemoView.xaml;Views\Dialogs\AddTodoView.xaml;Views\Dialogs\ToolTipView.xaml;Views\IndexView.xaml;Views\LoadingView.xaml;Views\MainView.xaml;Views\MemoView.xaml;Views\SettingView.xaml;Views\ToDoView.xaml;
 
 False
 

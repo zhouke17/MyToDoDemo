@@ -184,3 +184,5 @@ D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\Views\Dialogs\
 D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\Views\Dialogs\AddTodoView.g.cs
 D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\Views\Dialogs\AddMemoView.baml
 D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\Views\Dialogs\AddTodoView.baml
+D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\Views\Dialogs\ToolTipView.g.cs
+D:\资料\资源代码\Github\MyToDoDemo\obj\Debug\net5.0-windows\Views\Dialogs\ToolTipView.baml

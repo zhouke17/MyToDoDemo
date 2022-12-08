@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\IIS\MyToDoIIS</_PublishTargetUrl>
+    <History>False|2022-11-17T05:04:02.1065937Z;False|2022-11-17T12:51:50.6867933+08:00;False|2022-11-17T12:50:46.6320733+08:00;True|2022-11-17T12:39:47.4989527+08:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DbConnectString">
+      <Value>Data Source= todo.db</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="MyToToDemo.Api.Context.MyDbContext">
+      <Value>Data Source= todo.db</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

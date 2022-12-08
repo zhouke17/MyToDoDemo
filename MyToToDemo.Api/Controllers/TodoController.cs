@@ -33,6 +33,9 @@ namespace MyToToDemo.Api.Controllers
         [HttpPost]
         public async Task<ApiResponse> Update([FromBody] ToDoDto toDo) => await todoService.UpdateAsync(toDo);
 
+        [HttpGet]
+        public async Task<ApiResponse> GetSummary() => await todoService.GetSummaryAsync();
+
     }
 
 }
